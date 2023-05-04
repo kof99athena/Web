@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>CSS 기초문법</title>
+
+        <!-- 스타일 작성하는 영역 -->
+        <style>
+            /* 이 영역안에서는 CSS문법 체계를 따름 */
+            /* 기본 문법 - 선택자{ 속성 : 값; } */
+
+            /* body의 요소를 찾는 선택자의 종류*/
+            /* 1. 타입(요소)선택자 */
+            h2{color: red;}
+            p{color: blue; font-family: serif;}
+
+            /* 2. 전체선택자 : 선택자 우선순위로 요소선택자가 가장 높다. 써져있는 순서가중요한게 아님. (똑같은 속성이라면 마지막게 적용.)*/
+            /* 범위가 적은게 (즉, 개별선택자) 우선순위가 높다. */
+            *{font-style:italic; color: yellow;}
+
+            /* 3. 아이디 선택자 : 좁게 잡히므로 우선순위가 높다. */
+            #p1{color: green;}
+        
+            /* 4. 클래스 선택자 : Java의 클래스와 상관없다. */
+            .aa{color:violet}
+
+            /* 5. 선택자 그룹 : 요소를 선택*/
+            li,a{color: gray;}
+
+            /* 6. 자손,자식,형제결합자 : 자손 선택자는 자식선택자까지 포함된다. */
+            /* 자손선택자는 주의가 필요하다. */
+            #ss>p{color: black;}
+            #ss p{color: lime;}
+            /* 아래 둘은 완전히 다름 :스페이스는 자손을 말함 */
+            p.aa{}  /* p요소중에서 클래스 속성값이 aa인 요소 */
+            p .aa{} /* p요소의 자손들 중에서 클래스 속성값이 aa인 요소 */
+            /* 복합적으로 사용하는 선택자 */
+            #kk ul.gg>li{background-color: aqua;}
+
+            /* 7. 속성 선택자 : p중에서 [class]라는 요소를 가진녀석 */
+            p[class]{font-size: 30px;}
+            div[id="ss"]{font-weight: bold; background-color: antiquewhite;}
+
+            /* 8. 의사(수도) 선택자 :나는 만든적이 없는데 그 기능이있다, visited는 방문기록이 남아있다. */
+            a:link{color:blue;}
+            a:visited{color:brown;}
+            a:hover{color: green;}
+            a:active{color: yellow;}
+            /* 둘째는 따로 이름이 없다. n번째 자식 */
+            #kk ul li:first-child{color: red;}
+            #kk ul li:last-child{color:green}
+            #kk ul li:nth-child(2){color: blue;}
+            /* 수식을 이용한 n번째 자식 요소 선택 */
+            /* n값은 자동으로 늘어난다. 음수를 고려하여 +1로한다.  */
+            table tr:nth-child(2n+1){background-color: aqua;}
+
+        </style>
+
+    </head>
+    <body>
+        <h2 class="aa">CSS Selector Test</h2>
+        <p id="p1">Hello world</p>
+        <p class="aa">Nice to meet you</p>
+
+        <ul>
+            <li>aaa</li>
+            <li>bbb</li>
+            <li>ccc</li>
+        </ul>
+
+        <a href="">NEVER</a>
+
+        <div id="ss">
+            <h4>Region</h4>
+            <p>Hello World - ss의 자식</p>
+            <div>
+                <p>Apple</p>
+                <p>Orange</p>
+                <p>Banana</p>
+            </div>
+        </div>
+
+        <div id="kk">
+            <ul>
+                <li>111</li>
+                <li>222</li>
+                <li>333</li>
+            </ul>
+            <ul class="gg">
+                <li>aaa</li>
+                <li>bbb</li>
+                <li>ccc</li>
+            </ul>
+        </div>
+
+        <a href="https://www.google.com">Google</a>
+
+        <table border="1">
+            <tr>
+                <td>aaa</td>
+                <td>bbb</td>
+                <td>ccc</td>
+            </tr>
+            <tr>
+                <td>aaa</td>
+                <td>bbb</td>
+                <td>ccc</td>
+            </tr>
+            <tr>
+                <td>aaa</td>
+                <td>bbb</td>
+                <td>ccc</td>
+            </tr>
+            <tr>
+                <td>aaa</td>
+                <td>bbb</td>
+                <td>ccc</td>
+            </tr>
+        </table>
+
+    </body>
+</html>

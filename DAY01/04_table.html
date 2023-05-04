@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <hr>
+
+        <!-- 테이블의 셀병합에 대해 알아보기 -->
+        <table border="1">
+            <!-- 한줄만 있으면 비교할 셀이 없기에 span 영향이 안느껴짐 -->
+            <tr>
+                <td rowspan="2">111</td>
+                <td colspan="3">222</td>
+                <td>333</td>
+            </tr>
+            <tr>
+                <td>444</td>
+                <td>555</td>
+                <td>666666666666</td>
+            </tr>
+            <!-- 테이블의 제목 표시 -->
+            <caption>테이블 제목</caption>
+        </table>
+
+        <hr>
+        <!-- 테이블 셀영역(<td></td>)안에 다른 요소(element) 넣기 -->
+        <!-- 가로가 다 랩사이즈이다. -->
+        <table border="1" width="100%">
+            <tr>
+                <td width="30%">
+                    <a href="">NAVER</a>
+                </td>
+                <td>
+                    <ul>
+                        <li>aaa</li>
+                        <li>bbb</li>
+                        <li>ccc</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>테이블 안에는 어떤 요소든 배치 가능</p>
+                </td>
+                <td>
+                    <!-- 본인을 감싸는 테이블데이터 안에서 70%를 차지한다.  -->
+                    <img src="./americano.jpg" alt="블랙 커피" width="70%">
+                </td>
+            </tr>    
+        </table>
+
+        <!-- 예제 55p -->
+        
+
+
+    </body>
+</html>

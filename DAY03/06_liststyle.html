@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>네비 메뉴</title>
+        <style>
+            /* 네비게이션 메뉴 만들기 , 우선 블릭 기호를 빼자*/
+            ul{
+                list-style: none;
+                border-top: 1px solid red;
+                border-bottom: 1px solid red;
+                padding: 10px 0px 10px 0px;
+                text-align: center;
+            }
+
+            ul li{
+                display: inline;
+                text-transform: uppercase;
+                /* 이렇게 2개쓰면 위아래/ 양옆으로 패딩을 준다. */
+                padding: 0px 10px;
+                letter-spacing: 10px;
+                /* 착각하기 쉽다. list도 콘텐츠이다. 이 안에 정렬하는건 마진이 아니라 텍스트얼라인이다. */
+            }
+
+            ul li a{text-decoration: none; color: black; }
+            ul li a:hover{text-decoration: underline};
+
+        </style>
+    </head>
+    <body>
+        <ul>
+            <!-- 리스트는 기본적으로 블록요소 -->
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </body>
+</html>

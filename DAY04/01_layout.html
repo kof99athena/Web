@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>레이아웃 CSS</title>
+        <style>
+            /* display 속성 연습 */
+            #aa{display: inline; width: 300px;}    /* 이렇게 한다해도 사이즈조절이 안된다. 인라인요소는 랩사이즈이니까*/
+            #aa{display: inline-block; width: 300px;}
+            
+            /* 인라인 요소를 블럭요소로 바꾼다. */
+            img.bb{display: block; width: 150px;}
+
+            /* display none . 이러면 #cc가 보이지 않는다. */
+            #cc{display: none;}
+        </style>
+    
+    </head>
+    <body>
+        <!-- display 속성 :  블럭 <-> 인라인 요소의 성격을 뒤바꾸는것 -->
+        <!-- p는 블럭요소라서 한줄 다 차지한다. -->
+        <!-- a는 인라인요소, 공간이있으면 한줄에 다 붙는다.  -->
+        <p id="aa">Hello World</p>
+        <a href="">Google</a>
+        <strong>굿모닝</strong>
+
+        <img src="./image/img001_big.jpg" alt="img001_big" class="bb">
+
+        <hr>
+        <!-- display : none값 -->
+        <!-- 리스트는 블럭요소  ,unorder list-->
+        <ul>
+            <li>aaa</li>
+            <li id="cc">bbb</li>
+            <li>ccc</li>
+        </ul>
+
+        <hr>
+        <!-- 블럭요소와 인라인 요소를 같이 사용할때 고려할 것들 -->
+        <!-- 블럭요소안에 인라인요소, 다른 블럭요소 모두 넣을 수 있음. -->
+        <!-- div(걍 그룹핑하는애들)는 블럭요소, 이안에 인라인요소가 들어가면 그냥 한줄로 표현됨 -->
+        <div style="background-color: tomato; border: solid; padding: 5px;">nice <strong>aaa</strong> wolrd</div>
+        <!-- 블록안에 다른 블록요소 , 다 한줄씩 띄어진다.  -->
+        <div style="background-color: teal; border: solid; padding: 5px;">nice <p>aaa</p> wolrd</div>
+        <!-- 블록요소안에 같은 블록요소가 있다면? 첫번째줄만 배경색이 먹는다 왜??????????? -->
+        <!-- 중첩 p를 읽을수가 없다. 종료태그를 안썼다고 컴퓨터는 착각함.  -->
+        <!-- 컴퓨터는 P요소 쓰다가 다시 p요소를 썼다고 생각한다. -->
+        <!-- 시작태그가 없고 종료태그만 있으면 잘못된것임. 무시된다. world는 그냥 태그문 없이 쓴 text로 인식한다.  -->
+        <p style="background-color: yellow; border: solid; padding: 5px;">nice <p>aaa</p> world</p>
+        <!-- 그러나 div는 중첩을 인식한다. 요소마다 다 다르므로 성격을 고려해서 쓴다. -->
+        <!-- 인라인 요소안에 블럭요소를 넣으면? 원래 안됨 (html은 에러가 없으니까 함 해보자) -->
+        <!-- span은 인라인요소, div와 비슷한놈임 ,인라인은 블록을 감쌀수가 없다.-->
+        <span style="background-color: lightgreen; border: solid; padding: 5px;">nice <p>aaa</p> world</span>
+        
+        <hr>
+        <!-- position 속성 -->
+        <div class="aaa">
+            <p id="one">block 1번</p>
+            <p id="one2">block 2번</p>
+            <p id="one3">block 3번</p>
+    
+        </div>
+
+        <style>
+            #one{background-color: cyan; width: 200px; height: 50px;}
+            #one2{
+                background-color: yellow; width: 200px; height: 50px;
+                position: static;  /* static: 원래 놓여질 위치에 배치됨 .  */
+                position: relative; /* relative: 원래 놓여질 위치에서 위치속성으로 조정 가능함.  */
+                
+                /* 앱솔루트일때 부모의 영역(class)을 기준으로 배치하고싶다면? 부모요소의 position속성이 static이 아니면 됨 */
+                position: absolute; /* absolute: 문서의 좌측 상단을 기준으로 위치를 설정. 위치를 내맘대로 쓸수있다. (원래 배치될 위치에서 벗어난다.)  */
+                
+                position: fixed;  /*브라우저 창의 좌상단을 기준으로함*/
+                            
+                /* 위치 좌표설정값 설정속성 -> 이 속성은 static일때 무시된다. static이 걸리면 좌표설정이 불가하다. */
+                /* 마진이랑 느낌이 다르다. 겹쳐서 움직인다. 3번을 밀어내는 느낌이 아님. margin top이면 밑에 애들까지 영향을 받는다 */
+                /* left: 50px;
+                top: 30px; */
+
+                right: 10px;
+                top: 20px;
+            }
+            #one3{background-color: lightgreen; width: 200px; height: 50px;}
+
+
+            /* 블럭들의 부모요소 : relative 내 위치를 가지면서도 자식들도 참조가능*/
+            div.aaa{
+                background-color: black; 
+                position: relative;
+            }
+          
+        </style>
+
+
+    </body>
+</html>

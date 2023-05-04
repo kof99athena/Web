@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Form element</title>
+    </head>
+
+    <body>
+        <!-- form요소 : anchor처럼 다른 문서 실행하지만 데이터를 전달할 수 있고, 이동을 위한 별도의 input요소가 필요함 -->
+        
+        <!-- HTTP Request 프로토콜의 2가지 요청 방식 : get, post -->
+        <!-- 1. get방식 연습 -->
+        <form action="./getTest.php" method="get">
+            <!-- name속성 : 서버에 보낼 데이터를 구별하는 식별자 키값 지정 -->
+            <input type="text" name="title"> 
+            <input type="text" name="msg">
+            <input type="submit">
+        </form>
+  
+        <!-- 2. post방식 연습 -->
+        <form action="./postTest.php" method="post">
+            <fieldset>
+                <legend>POST방식 HTTP 요청</legend>
+                <label for="in1">name : </label>
+                <input type="text" name="name" id="in1"> <br>
+                <label>password : <input type="password" name="pw"></label> <br>
+
+                <p>
+                    <!-- name속성이 같아야 같은 그룹이다.  -->
+                    <!-- 서버로 보내지는 글씨는 value -->
+                    gender : 
+                    <label><input type="radio" name="rg" value="male">male</label>
+                    <label><input type="radio" name="rg" value="female" checked>female</label>
+                </p>
+
+                <p>
+                    <!-- []배열이라고 서버에게 말해줘야한다. 가장 마지막걸 읽는다 -->
+                    fruits:
+                    <label><input type="checkbox" name="fruits[]" value="apple" checked>사과</label>
+                    <label><input type="checkbox" name="fruits[]" value="banana">바나나</label>
+                    <label><input type="checkbox" name="fruits[]" value="orange">오렌지</label>
+                </p>
+
+                <p>
+                    message :
+                    <textarea name="msg" cols="40" rows="5"></textarea>
+
+                </p>
+
+                <p>
+                    <select name="brand">
+                        <optgroup  label="자동차브랜드">
+                            <option value="현대">현대</option>
+                            <option selected value="기아">기아</option>
+                            <option value="쌍용">쌍용</option>
+                        </optgroup>
+                    </select>
+                </p>
+
+                <!-- 화면에 보이지는 않지만 서버에 데이터를 보내고 싶을때 -->
+                <input type="hidden" name="id" value="aaaa">
+
+                <div>
+                    <input type="submit">
+                    <input type="reset">
+                </div>
+
+
+            </fieldset>
+        </form>
+
+    </body>
+
+</html>

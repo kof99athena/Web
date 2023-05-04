@@ -1,0 +1,107 @@
+/* 모든 요소들에 기본 마진과 패딩을 날려버리기 */
+*{margin: 0px; padding: 0px;}
+
+/* 화면에 너무 붙어있는 것이 싫어서  */
+body{
+    padding: 30px;
+    background-color:darkkhaki;
+}
+
+/* 제목줄 영역 */
+header{
+    padding: 5px 5px;
+}
+
+header a{
+    text-decoration: none;
+    color: #333333;
+}
+
+/* 네비게이션 메뉴 */
+nav{
+    margin: 10px;
+    margin-bottom: 20px;
+}
+
+nav ul{
+    list-style: none;
+    border-top: 1px solid rgb(227, 232, 217);
+    border-bottom: 1px solid rgb(227, 232, 217);
+    text-align: center;
+}
+
+nav ul li{
+    display: inline;
+    letter-spacing: .3em;
+    margin-left: 2em;
+}
+
+nav ul li a{
+    text-transform: uppercase;
+    text-decoration: none;
+    color: aliceblue;
+    line-height: 3em;
+}
+
+nav ul li a:hover{text-decoration: underline;}
+
+/* 왼쪽 사이드 메뉴 */
+aside#left{
+    /* 아이프레임이 아래에서 위로 딸려올라온다 */
+    float:left;
+    width: 10em;
+    margin-right: 1em;
+}
+
+#left ul{
+    list-style: none;
+}
+
+#left ul li{
+    background-color: olivedrab;
+    padding: 5px 10px;
+    border-bottom: 1px dotted wheat;
+}
+
+#left ul li a{
+    color: lemonchiffon;
+    text-decoration: none;
+    display: block;
+}
+
+#left ul li:hover{
+    background-color:rebeccapurple;
+}
+
+#left h4{
+    padding: 5px;
+}
+
+/* 본문영역도 asideleft 옆에 놓여지도록 */
+section#main{
+    /* 아이프레임을 감쌀정도로 겉배경을 준다.  */
+    float: left;
+    width: 460px;
+}
+
+/* 오른쪽 사이드 영역 */
+#rignt{
+    float: right;
+    padding: 10px;
+    width: 12em;
+}
+
+#right #shopcart{
+    margin-bottom: 30px;
+}
+
+#right #login input{
+    margin-bottom: 5px;
+}
+
+/* footer */
+footer{
+    color:rgb(0, 0, 0);
+    font-size: 20px;
+    clear: both;
+}

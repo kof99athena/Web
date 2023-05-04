@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>List,Anchor,image</title>
+    </head>
+    <body>
+        <!-- 리스트요소 - 점으로표현 -->
+        <ul>
+            <li>아메리카노</li>
+            <li>아메리카노</li>
+            <li>아메리카노</li>
+        </ul>
+
+        <!-- 순서로 표현 -->
+        <ol>
+            <li>아메리카노</li>
+            <li>아메리카노</li>
+            <li>아메리카노</li>
+        </ol>
+
+        <!--  -->
+        <dl>
+            <dt>aaa</dt>
+            <dd>이것은 Definition Data입니다. </dd>
+            <dt>bbb</dt>
+            <dd>이것은 Definition Data입니다. </dd>
+        </dl>
+
+        <hr>
+        <!-- 하이퍼링크 anchor 요소 , 하이퍼레퍼런스-->
+        <a href="https://www.naver.com">NAVER</a>
+        <br>
+        <!-- 다른탭에서 열리게하자. 상대주소 -->
+        <a href="./Hyeyoung coFFee.html" target="_blank">상대주소 : 다른 html 주소</a>
+        <br>
+        <a href="#help">도움말 위치로 이동</a>
+        <!-- #은 특정위치를 말한다. -->
+        <br>
+        <hr>
+        <br>
+        <br>
+        <h4 id="help">도움말</h4>
+
+        <!-- br태그로 줄바꿈하는 대신에 단락요소안에 anchor요소를 배치하는 방식이 선호됨 -->
+        <p><a href="">aaa</a></p>
+        <p><a href="">bbb</a></p>
+        <ul>
+            <li><a href="">111</a></li>
+            <li><a href="">222</a></li>
+            <li><a href="">333</a></li>
+        </ul>
+
+        <!-- href에 이메일주소를 하이퍼링크 -->
+        <p><a href="mailto:02mos@naver.com">02mos@naver.com</a></p>
+        <!-- 이미지보기 -->
+        <!-- _blank는 새탭을 띄우라는뜻 -->
+        <p><a href="https://media.istockphoto.com/id/1443562748/ko/%EC%82%AC%EC%A7%84/%EA%B7%80%EC%97%AC%EC%9A%B4-%EC%83%9D%EA%B0%95-%EA%B3%A0%EC%96%91%EC%9D%B4.jpg?s=612x612&w=is&k=20&c=FUBu5_tWdys-knmbWcf-CWx-knovRemsVf4UrFq_imA=">이미지보기</a></p>
+        <p><a href="./americano.jpg" target="_blank">상대주소</a></p>
+
+        <!-- 다운로드 링크 : 브라우저가 보여줄 수 없는 파일형식을 다운로드됨 -->
+        <p><a href="http://mrhi2023.dothome.co.kr/aaa.zip">압축파일 다운로드</a></p>
+
+        <hr>
+        <!-- 이미지 요소 : empty element-->
+        <img src="./americano.jpg" alt="아메리카노">
+        <!-- 가로 세로를 주면 짓눌러버린다.  -->
+        <img src="./americano.jpg" alt="아메리카노" width="100" height="100">
+        <br>
+
+        <img src="http://mrhi2023.dothome.co.kr/newyork.jpg" alt="뉴욕" width="30%" height="30%">
+        <img src="./aaa.jpg" alt="이미지가 없을 때 보여질 글씨">
+
+        <!-- image요소와 앵커요소를 합친다 -->
+        <br>
+        <!-- 나를 크게 보여준다.  -->
+        <a href="./americano.jpg" target="_self"><img src="./americano.jpg" alt="아메리카노" width="100"></a>
+        
+        
+
+    </body>
+</html>

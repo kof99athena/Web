@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <body>
+       <div id="target">
+        <p>블럭 1번</p>
+        <p>블럭 2번</p>
+        <p>블럭 3번</p>
+        <p>블럭 4번</p>
+        <p>블럭 5번</p>
+       </div>
+    </body>
+    <style>
+        p{
+            background-color: greenyellow;
+            width: 200px; height: 50px;
+        }
+
+        #target{
+            border: 1px solid black;
+            width: 300px; height: 100px;
+            /* 자식들이 흘러넘쳤을때 대응하는방법 overflow */
+            overflow: hidden;
+            overflow: scroll;
+            overflow: auto;
+        }
+    </style>
+</html>

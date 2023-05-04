@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>박스 모델(요소의 크기 및 배경)</title>
+        <style>
+            p.aa{
+                /* 경계선 */
+                border-style: solid;
+                border-top-style: dotted;
+                border-width: thin;
+                border-width: 2px;
+                border-bottom-width: 8px;
+
+                border-color: red;
+                border-right-color: blue;
+
+                border-radius: 20px;
+                border-bottom-left-radius: 0px;
+                border-top-right-radius: 0px;
+
+                /* 경계선을 이미지가 보일 정도의 두께로 설정 */
+                border: 30px solid transparent;
+
+                /* 경계선 이미지 */
+                border-image-source: url(./image/border.png);
+                border-image-slice: 30 30;    /* 높이 너비  : 기본 스트레치 모드이다*/
+                border-image-repeat: round;
+
+                /* 요소의 크기 */
+                /* 나를 감싸는 부모의 크기를 고려하여 작성해야한다.  */
+                width: 70%; 
+                height: 300px;
+
+                /* 요소의 콘텐츠가 아니라 요소 자체를 가운데 정렬 */
+                margin-left: auto;
+                margin-right: auto; 
+                  
+                /* 선택자 그룹으로 묶어서 100% 주자 */
+                html, body{height: 100%;}
+
+            }
+
+            /* 인라인요소 - 너비지정 불가*/
+            a{background-color: red; width: 200px; }
+            em{background-color: aqua; width: 100px;}
+
+            /* 인라인 블럭요소 - 너비지정 가능 */
+            img{width: 500px; border: 1px solid black;}
+            input{background-color: aqua; width: 100%;}
+         
+            
+
+        </style>
+    </head>
+    <body>
+        <!-- 경계선 border / 요소의 크기 / 가운데 정렬 -->
+        <!-- html, body의 높이가 wrap이다. 부모 기준으로 퍼센트를 먹는다.  -->
+        <p class="aa">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore est dicta aut alias omnis exercitationem, rem, laborum autem quo, eligendi maiores. Quisquam vero repellat iste nesciunt animi repellendus tenetur molestiae?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla omnis perspiciatis asperiores quisquam. Enim, architecto maxime, eaque natus, praesentium sint mollitia quos dolor nisi nobis eius? Laborum obcaecati iste sunt.
+        </p>
+
+        <!-- 인라인요소의 크기 설정 및 가운데 정렬 -->
+        <!-- 인라인 요소 : 너비조정 불가능 -->
+        <a href="">anchor</a>
+        <em>Hello</em>
+        
+        <!-- 인라인(블럭) 요소 : 너비조정 가능 -->
+        <img src="./image/image.png" alt="image">
+        <input type="text">
+
+        <!-- 마진 -->
+        <div id="m">
+            <p id="p1">p1</p>
+            <p id="p2">p2</p>
+        </div>
+
+
+        <style>
+            /* bottom, top마진은 기본적으로 겹친다. 20px, 10px라고해도 20px만 설정된다. */
+           #p1{background-color: red; margin: 0px; height: 50px; margin-bottom: 20px;}
+           #p2{background-color: green; margin: 0px; height: 50px; margin-top: 10px;}
+
+            /* 음수 마진을 주면 요소가 겹침 */
+           #p1{background-color: red; margin: 0px; height: 50px; }
+           #p2{background-color: green; margin: 0px; height: 50px; margin-top: -20px; width: 50%;}
+
+
+        </style>
+
+        <!-- 배경 이미지 -->
+        <p class="back">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Incidunt numquam asperiores nesciunt odio tempora error explicabo. Ipsum doloremque, debitis vitae, voluptate error dignissimos nesciunt obcaecati autem dolorum similique consectetur saepe.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum harum tenetur alias ipsa, sunt in ducimus delectus quam omnis officia deleniti. Voluptate beatae, quasi quia nam officiis deserunt vel veritatis.
+        </p>
+
+        <style>
+            p.back{
+                background-color: green;
+                /* 이미지가 요소보다 작다면 바둑판처럼 그림이 여러개 들어온다. */
+                background-image: url("./image/image.png");
+                background-size: 200px 100px;
+                background-repeat: repeat-x;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-position: right top;
+                background-position: top center;
+            }
+        </style>
+
+        <!-- 배경 이미지가 붙어 있는 위치를 설정 -->
+        <p id="attach">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde aliquam officia atque et sunt laborum nobis ad ipsa quod suscipit doloribus, tempore voluptate blanditiis cum nulla accusamus dicta ratione illum.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas autem minima laudantium porro placeat nihil eligendi vitae architecto reiciendis sint, vel voluptates rem animi doloremque accusamus odio sapiente quia quas?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi debitis ab, consectetur nobis nesciunt quibusdam perspiciatis. Cupiditate vitae ipsa accusamus earum, odit id. Dolore deserunt alias molestiae, dolor sit dolorum.
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea ipsam minus nulla nisi doloribus laboriosam ducimus dolorem unde tempora soluta iste assumenda eius sint repudiandae itaque, nihil veniam in? Laudantium!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, repellat neque minus omnis saepe ipsam officia magnam atque eligendi necessitatibus. Ex voluptatibus ipsa maiores? Deserunt a saepe ipsum neque odio!
+        </p>
+
+        <style>
+            /* 부모는 틀에 불과하다. 자식이 영역밖으로 흘러넘칠수도있다.  */
+            #attach{
+                width: 60%;
+                margin-left: auto;
+                margin-right: auto;
+                height: 300px;
+                border: 2px solid blue;
+                overflow: scroll;
+
+                /* 스크롤 박스의 배경을 이미지로 준ㄴ다 */
+                background-image: url(./image/image.png);
+                background-size: 200px 100px;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-attachment: scroll;  /*  액자에 붙어있는 느낌*/
+                background-attachment: local;   /* 콘텐츠에 붙어있는 느낌*/
+                background-attachment: fixed;   /*브라우저에 배경 이미지가 붙어있다. 단, 요소 안에서만 보여짐*/
+            }
+    
+        </style>
+
+    </body>
+
+</html>

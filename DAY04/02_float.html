@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Float</title>
+
+        <style>
+            /* 이미지를 올리되 가려지지않게 p요소를 옆으로 밀어준다.  */
+            img.a{float: left; margin: 10px;}
+        </style>
+
+    </head>
+    <body>
+        <img src="./image/sunshine.jpg" alt="sunshine" width="160" height="120" class="a">
+        <p style="background-color: yellow; border: 2px solid red;">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia architecto dolorum libero ipsam unde error necessitatibus reprehenderit sapiente a eligendi, pariatur sit consequatur quos neque culpa nam cupiditate vitae quidem.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta ad nesciunt dignissimos perspiciatis ipsum, itaque quaerat impedit assumenda earum ipsa? Culpa obcaecati dolor, consequuntur id aliquam optio ipsa suscipit eaque?
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam deleniti qui voluptas nostrum non illum, veritatis nobis doloremque. Reiciendis ratione veritatis facilis quibusdam adipisci natus, quidem hic accusamus doloribus quasi!
+        </p>
+
+        <!-- 공간의 여유가 있으면 이 영역도 float의 영향을 받는다.  -->
+        <!-- clear로 빨려들어오지못하게 만든다.  -->
+        <p style="clear : left;">여기는 위 기사와 상관없는 새로운 블럭</p>
+        
+    </body>
+</html>

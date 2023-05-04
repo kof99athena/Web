@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Form element 2</title>
+    </head>
+    <body>
+        <!-- 파일 전송, 미디어 데이터는 post방식이다.  -->
+        <!-- 서버작업에는 꼭 2개가 필수이다. type="file" name="aaa" -->
+        <form action="./file.php" method="post" enctype="multipart/form-data">
+            <input type="file" name="aaa" accept="image/png">
+            <input type="submit" value="전송">
+        </form>
+        
+        <hr>
+        <!-- 여러개의 파일 전송 -->
+        <form action="./file2.php" method="post" enctype="multipart/form-data">
+            <input type="file" name="bbb[]" multiple>
+            <input type="image" src="./image/ms17.png" width="50">
+        </form>
+
+
+
+    </body>
+</html>

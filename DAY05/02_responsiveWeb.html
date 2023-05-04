@@ -3,8 +3,58 @@
     <head>
         <meta charset="utf-8">
         <title>반응형</title>
+        <style>
+            
+            *{padding: 0px; margin: 0px;}
+            #wrapper{
+                margin-left: auto;
+                margin-right: auto;
+                width: 90%;
+                border: 4px solid black;
+            }
+            #wrapper div{
+                display: inline-block;
+                height: 100px;
+                width: 100%;
+            }
+            /* 각 영역들의 배경색을 지정 */
+            #wrapper div:first-child{
+                background-color: aqua;
+            }
+            #wrapper div:nth-child(2){
+                background-color: lightgreen;
+            }
+            #wrapper div:nth-child(3){
+                background-color: red;
+            }
+            #wrapper div:nth-child(4){
+                background-color: rosybrown;
+            }
+            #wrapper div:last-child{
+                background-color: yellow;
+            }
+            /* 미디어쿼리는 항상 작은 사이즈를 기준으로 만들자 */
+            /* 미디어 쿼리 적용 */
+            @media all and (min-width:320px){
+                #wrapper div{width: 100%;}
+            }
+
+            @media all and (min-width:600px){
+                #wrapper div{width: 50%;}
+                #wrapper div:last-child{width: 100%;}
+            }
+
+            @media all and (min-width:800px){
+                #wrapper div{width: 20%;}
+                #wrapper div:last-child{width: 20%;}
+            }
+
+
+        </style>
     </head>
     <body>
-        
+        <div id="wrapper">
+            <!-- 엔터는 띄어쓰기로 인식된다. 50% + 띄어쓰기 + 50% 이거때문에 한줄을 넘어선다-->
+            <div>aaa</div><div>bbb</div><div>ccc</div><div>ddd</div><div>eee</div></div>
     </body>
 </html>

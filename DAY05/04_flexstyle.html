@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Flex Style</title>
+        <style>
+            #container>div{
+                background-color: aqua; padding: 20px;
+                margin: 10px;
+                width: 100px;
+            }
+
+            #container{
+                display: flex; /*flex를 쓰면 인라인블럭처럼 옆으로 배치됨 : 사이즈조절됨*/
+                /* 기본적으로 자식요소들은 가로방향으로 배치됨 */
+                /* 자식요소의 배치방향을 정하는 속성 */
+                /* 가로 : row , 세로 : column */
+                flex-direction: row;
+                flex-direction: row-reverse;
+                
+                flex-direction: column;
+                flex-direction: column-reverse;
+
+                border: 1px solid black;
+                height: 300px;
+
+                flex-direction: row;
+
+                /* 혹시 자식요소의 개수가 많으면? 부모 사이즈를 벗어남*/
+                /* 만약 이때 자동줄바꿈이 되게 하고 싶다면.. */
+                flex-wrap: nowrap;  /*default*/
+                flex-wrap: wrap;
+                flex-wrap: wrap-reverse;
+
+                /* 위 2가지 속성 direction, wrap을 한번에 하는 속성 */
+                flex-flow: wrap column;
+                flex-flow: row nowrap; /*초기 상태 */
+
+                /* 자식요소의 정렬 : 두가지 속성이 있다. */
+                /* 1. justify-content : 배치 방향의 정렬 */
+                /* 1.1 수평배치(row)일때는 수평정렬 */
+                flex-direction: row;
+                justify-content: flex-start; /*디폴트값*/
+                justify-content: center;
+                justify-content: flex-end;
+                justify-content: space-between;
+                justify-content: space-around;
+                justify-content: space-evenly;
+
+                /* 1.2 수직배치(column)일때는 수직정렬 */
+                flex-direction: column;
+                justify-content: flex-start;
+                justify-content: center;
+                justify-content: flex-end;
+                justify-content: space-between;
+                justify-content: space-around;
+                justify-content: space-evenly;
+
+                justify-content: flex-start;
+
+                /* 2. align-items : 배치 방향과 교차축의 정렬 , 배치방향이 수평이면 수직을 정렬한다. */
+                /* 2.1 수평배치(row) 일때 수직정렬 */
+                flex-direction: row;
+                align-items: flex-start; 
+                align-items: center;
+                align-items: end;
+                align-items: stretch; /*align-items의 디폴트는 stretch이다.*/
+
+
+                /* 2.2 수직배치(column) 일때 수평정렬 */
+                flex-direction: column;
+                align-items: flex-start;
+                align-items: center;
+                align-items: end;
+                align-items: stretch; /*디폴트*/
+                /* 주의점! 요소의크기가 지정되어있으면 적용되지 않음. */
+
+            }
+
+        </style>
+    </head>
+    <body>
+        <!-- Flex Style : 자식요소들의 배치를 유연하게 하기위한 스타일-->
+        <!-- flex 스타일은 부모요소에 display 속성으로 지정함 -->
+        <!-- 자식요소의 배치를 부모가 결정하는 방식 - 안드로이드와 비슷 -->
+        <!-- 수직 배치는 부모 상관없다. 블럭요소니까 수직배치 된것이다.  -->
+        <div id="container">
+            <div>aaa</div>
+            <div>bbb</div>
+            <div>ccc</div>
+
+
+            <!-- <div>aaa</div>
+            <div>bbb</div>
+            <div>ccc</div>
+            <div>aaa</div>
+            <div>bbb</div>
+            <div>111</div> -->
+        </div>
+
+        <hr>
+        <!-- 정렬속성을 이용하여 요소를 가운데 정렬하기 -->
+        <header>
+            <h2>MyPage</h2>
+            <p>This is my web page</p>
+        </header>
+
+        <style>
+            /* 제목 영역의 요소를 가운데 정렬 */
+            header{
+                height: 300px;
+                background-color: violet;
+                color: wheat;
+               
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+        </style>
+
+    </body>
+</html>

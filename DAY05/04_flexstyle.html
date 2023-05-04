@@ -118,6 +118,110 @@
                 align-items: center;
             }
         </style>
+        <br>
+        <hr>
+        <br>
+        <!-- 자식들 입장에서의 Flex 관련 스타일 속성 -->
+        <div id="container2">
+            <div id="ch1">aaa</div>
+            <div id="ch2">bbb</div>
+            <div id="ch3">ccc</div>
+        </div>
+
+        <style>
+            #container2{
+                display: flex;
+                border: 1px solid black;
+
+            }
+
+            #container2>div{
+                background-color: red;
+                padding: 20px;
+                margin: 10px;
+            }
+            
+            /* 자식요소들이 사용하는 flex 속성들 */
+            /* 1. order :  배치 순서 변경 */
+            #ch1{
+                order:0;
+            }
+            #ch2{
+                order: 2;
+            }
+
+            /* 2. flex-grow : 너비를 상대적인 값의 비례로 지정 [android의 layout-weight 같은 속성] */
+            /* 화면의 비율대로 조정가능 */
+            #ch1{
+                order:2; 
+                flex-grow: 1;
+                }
+
+            #ch3{
+                order:3; 
+                flex-grow: 2;
+                }
+
+            /* 3. flex-shrink : 나머지 요소들과 비교하여 너비를 얼마나 줄일지를 결정, 05번 참고하기 */
+            /* 4. flex-basis : 요소들의 초기 길이를 지정함  [너비가 부족할 때 basis로 지정한 요소만 먼저 사이즈가 줄어듬]*/
+            #ch1{
+                flex-grow: 0;
+               
+            }
+
+            #ch2{
+                flex-grow: 0;
+                flex-basis: 200px;
+            }
+
+            #ch3{
+                flex-grow: 0;
+                flex-basis: 300px;
+            }
+             
+            /* 5. flex 축약속성(-grow -shrink -basis의 축약) */
+            #ch1{
+                flex: 0 0 0px;
+            }
+            #ch2{
+                flex: 1 0 0px;
+            }
+            #ch3{
+                flex: 1 0 0px;
+            }
+
+            /* 보통은 -grow를 가장 많이 사용기에 축약할때도 grow만 작성함 */
+            #ch1{flex:1;}
+            #ch3{flex:3;}
+
+
+            /* 부모가 자식보다 클때 자식요소의 정렬을 자식 스스로 결정하게 한다.  */
+            #container2{
+                flex-direction: row;
+                height: 300px;
+
+            }
+            #container2>div{
+                
+                height: 100px;
+                
+            }
+
+            #ch2{
+                align-self: center;
+            }
+            #ch3{
+                align-self: flex-end;
+            }
+
+            /* justify-self도 있음 */
+            
+
+
+
+
+        </style>
+
 
     </body>
 </html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>얼럿창</title>
+
+        <script>
+            //다이얼로그 세종류
+            //1. 일반 경고창 - 확인버튼 1개짜리
+            alert("경고입"); //동기식
+
+
+            //2. 사용자에게 확인/취소를 선택하게 하는 다이얼로그
+            var anwser=confirm('종료하시겠습니까?'); 
+            document.write(" 선택결과 : " + anwser+ "<br>");
+
+
+            //3. 사용자의 글씨입력 - 리턴은 무조건 string으로 받는다. 
+            //null의 자료형은 object이다. 빈글씨가 아니다(undefined가 아니다 헷갈리기쉽다. )
+            var age = prompt("당신의 나이를 입력하세요.","0");
+            document.write(age+"<br>");
+            document.write(typeof(age)+"<br>");
+
+            document.write("<br>다이얼로그...<br>");
+
+        
+
+
+
+            
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

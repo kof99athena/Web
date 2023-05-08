@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Element control</title>
+        <!-- 가급적 스크립트는 헤드영역에다가 만든다 -->
+        <script>
+            function aaa(){
+                //두수를 입력하는 입력요소 찾아오기
+                var e1 = document.getElementsById("in1"); //edittext 참조변수 만들기
+                var e2 = document.getElementById("in2");
+
+                //두 요소에 써있는 글씨 얻어오기
+                var a = e1.value; //그 값을 얻어온거임
+                var b = e2.value;
+                //a와 b는 기본적으로 string임. 산술연산하려면 수치형으로 변환
+                var c = parseInt(a)+parseInt(b);
+            
+                var e3 = document.getElementById("result");
+                e3.value= c;
+            }
+
+          
+
+            function changeColor(){
+                var e= document.getElementById("aa");
+                e.style.backgroundColor= "yellow";
+                e.style.color= "red";
+                e.style.border= "1px solid blue";
+            }
+
+            
+        </script>
+    </head>
+    
+<!-- //다이얼로그로 사용자 입력받으려니 짜증
+//HTML 입력 요소를 이용하여 사용자 입력 받기
+//JS로 HTML 요소를 직접 제어해보기 -->
+
+<body>
+        
+    <input type="text" id="in1"><br>
+    <input type="text" id="in2"><br>
+    <button onclick="aaa()">계산</button> <br>
+    <input type="text" id="result" readonly><br>
+
+    <hr>
+
+    <!-- HTML 요소의 특정 스타일 변경해보기 -->
+    <h2 id="aa">This is Heading</h2>
+    <button onclick="changeColor()">change backgroun color</button>
+
+    <hr>
+
+    <!-- 이미지 변경하기 -->
+    <img src="sleepcat.gif" alt="sleepcat" width="30%">
+    <button onclick="changeImage()">change image</button>
+
+    <script>
+        function changeImage(){
+            var es= document.getElementsByTagName("img"); // 배열로 찾아서 리턴해줌
+            es[0].src= "cat7.gif";
+        }
+    </script>
+
+    <hr>
+
+    <!-- <script>와 HTML요소를 혼합하여 사용하는 경우도 많음 -->
+    <table border="1" style="text-align: center;">
+        <tr>
+            <th>Number</th>
+        </tr>
+
+        <script>
+            for(var i=0; i<10; i++){
+                document.write('<tr><td>' + i +'</td></tr>');
+            }
+        </script>
+
+    </table>    
+
+</html>
+

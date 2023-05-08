@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>자바스크립트 배열</title>
+        <script>
+            //배열의 두가지 생성 방법
+            //1. 리터럴 배열
+            var aaa = [10,20,30];
+            document.write(aaa[0]+"<br>");
+            document.write(aaa[1]+"<br>");
+            document.write(aaa[2]+"<br>");
+
+            //배열의 이름을 출력하면 
+            //배열의 toString이 발동
+            document.write(aaa+"<br>"); //10,20,30
+
+            //JS는 동적 타이핑 언어여서 배열 요소의 자료형이 달라도 됨
+            var bbb=[10,"aaa",true];
+            document.write(bbb+"<br>");
+            //배열 요소의 인덱스 번호가 틀리면? undefined
+            document.write(bbb[3]+"<br>"); //undefined
+            //배열의 길이가 동적으로 변경될 수 있음
+            document.write("배열길이 : "+bbb.length+"<br>");
+            bbb[5] = 100; //bbb배열의 [5]인덱스 위치에 100 대입
+            //중간에 비어있는 사이요소인 [3],[4]를 만들어낸다. -> 이곳은 undefined이다. 
+            document.write("배열길이 : "+bbb.length+"<br>");
+            document.write(bbb+"<br>"); //10,aaa,true,,,100   사이에 값이 비어있다. 
+
+            document.write("<hr>");
+            
+            //2. Array 객체로 배열 생성
+         
+         //2. Array 객체로 배열 생성
+            var ccc= new Array(10, "sam", true);
+
+            //반복문을 이용하여 요소값 접근
+            for(var i=0; i<ccc.length; i++){
+                document.write(ccc[i] +"<br>");
+            }
+            document.write("<br>");
+
+            //for each 문법 - in키워드 연산자
+            for(var index in ccc){ //배열의 인덱스 번호가 자동 증가
+                document.write( ccc[index] +"<br>" );
+            }
+            document.write("<br>");
+
+            var ddd = new Array();
+            ddd[0] = "apple";
+            ddd[1] = "banana";
+            ddd[2] = "orange";
+
+            for(var i=0;i<ddd.length;i++) document.write(ddd[i]+",");
+            document.write("<br>");
+
+            //연관배열 - 배열요소 식별값을 인덱스번호가 아닌 문자열로지정
+
+            var eee= new Array(); //여기까지는 0개짜리 배열
+            eee['aa'] = 10;
+            eee['bb'] = 20;
+            eee['cc'] = 30;
+
+            document.write(eee['aa']);
+            document.write(eee['bb']);
+            document.write(eee['cc']);
+
+            document.write("<br>");
+
+            //리터럴 배열도 가능함
+            var fff=[]; //빈 리터럴
+            fff['id'] = "abcd";
+            fff['pw'] = "1234";
+            //document.write(fff+"<br>")
+            document.write(fff['id'+"<br>"]);
+            document.write(fff['id'+"<br>"]);
+
+            //요소값을 지정하면서 연관 배열생성도 가능
+            var ggg = {'aa':10,'bb':20}; //json과 아주 비슷함 자바스크립트오브젝트
+            document.write(ggg['aa']+"<br>");
+            document.write(ggg['bb']+"<br>");
+            document.write("<br>");
+
+            //연관배열이 요소배치 방식이 JS객체멤버와 비슷하기에..
+            //이런문법으로도 요소접근이 가능함
+            document.write(ggg.aa+"<br>");
+            document.write(ggg.bb+"<br>");
+            document.write("<br>");
+            
+            //실제 실무에서 이 특징을 이용하여 <form> 요소 안에 있는 
+            //<input>요소들을 참조할때 연관배열의 특징을 활용한다. 
+
+
+        </script>
+    </head>
+    <body>
+        <hr>
+        <!-- name은 서버로 날아갈때 확인하는 식별자 -->
+        <form name="mm">
+            <input type="text" name="in1">
+            <input type="text" name="in2">
+            <input type="text" name="in3">
+        </form>
+
+        <script>
+            //input요소를 참조하여 제어하려면..
+            //var e = document.getElementsByName('in1') 이러면 너무 귀찮
+
+            //일일이 찾아서 참조하지 않고.. form요소를 참조하는 기본 배열객체를 이용
+            //그 form배열안에 있는 input요소들도 배열로 참조가능 
+            document.forms[0][0].value=10 //한 화면 안에 폼요소가 여러개 있을 수도 있다. 
+            //<input type="text" name="in1">이거말하는거임
+            document.forms['mm'][1].value=20
+            document.forms['mm']['in3'].value=30 //이렇게 찾으면 식별성이 높아짐.
+
+            document.mm['in1'].value="aaa" //in1의 밸류값을 aaa로 바꿔보자
+            document.mm.in2.value = "bbb"
+
+        </script>
+        <!-- 2차원 배열은 1차원 배열을 요소로 가지는 배열 -->
+        <script>
+            //var arr= new Array();
+            var aa = [10,20,30];
+            var bb = ["aa","bb","cc"];
+            var cc = [true,true,false];
+            var arr= new Array();
+            arr[0] = aa;
+            arr[1] = bb;
+            arr[2] = cc;
+
+            document.write(arr[0][0]+",");
+            document.write(arr[0][1]+",");
+            document.write(arr[0][2]+"<br>");
+
+            document.write(arr[1][0]+",");
+            document.write(arr[1][1]+",");
+            document.write(arr[1][2]+"<br>");
+
+            document.write(arr[2][0]+",");
+            document.write(arr[2][1]+",");
+            document.write(arr[2][2]+"<br>");
+
+            //반복문으로 해보기
+            for (var i=0; i<arr.length; i++){
+                //크게 3번 돈다
+                for(var k=0; k<arr[i].length; k++){
+                    document.write(arr[i][k]+",");
+                }
+                document.write("<br>");
+            }
+
+        </script>
+    </body>
+</html>

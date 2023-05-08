@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Java script</title>
+        <!-- 브라우저가 interprete(통역)해서 실행하는 프로그래밍 코드 작성 -->
+        <!-- 1. 내부스크립트 - HTML안에 스크립트를 작성 -->
+        <script>
+            // 이 스크립트 영역 안에서는 java script 문법 체계를 따른다. 
+            // HTML에서 body안에 했던 모든 작업을 스크립트로 처리하는게 가능.
+            //화면에 출력 . document는 내장객체
+            document.write("Hello world");
+
+            // 자동 줄바꿈되지 않음
+            document.write("안녕");
+            //자바 스크립트와 자바의 차이점
+            //자바스크립트는 한문자와 문자열의 구분이 없다.
+            document.write('자동 줄바꿈안됨.. <br>태그를 써야한다.');
+            
+            //HTML의 태그문을 직접 작성할수도 있다.
+            document.write('<hr>');
+            //앵커 요소에 반드시 속성이있어야 앵커가 적용된다.
+            //겉이 작은 따옴표니까 안에는 큰 따옴표로 적는다. 둘다 같은 따옴표면 에러
+            document.write('<a href="">google</a>')
+
+            document.write('<hr>');
+
+            //JS는 프로그래밍 언어이기에..
+            //변수, 객체, 연산자, 제어문 등이 가능함
+
+            var a=10;
+            document.write(a+"<br>");
+            //br태그를 이렇게 결합으로 사용가능하다. 
+
+            //객체 toString 자동발동
+            var b=new Date();
+            document.write(b);
+
+            //이벤트에 의해 자동 발동하는 함수 만들기 aaa()
+            function aaa(){
+                //alert('clicked button')
+                //이렇게 하면 기존 글씨를 날려버린다. 이어붙이기 해주는 녀석이 아님.
+                //화면을 다시 그리기때문에 주의해서 써야한다. 
+                //body영역이 모두 그려진후에 document.write()하면 화면이 새로 갱신됨.
+                document.write('clicked button');
+            }
+
+            //js가 버전업이 되면서 문자의 끝을 나타내는 ;은 생략해도됨
+            document.write('<hr>')
+            document.write('안녕하세요.')
+
+        </script>
+
+        <!-- 2. 외부 스크립트 연결 : 만든 파일에서 가져온다 css는 link를 쓰고 자바스크립트는 script로 쓴다-->
+        <script src="./01_ex.js"></script>
+    </head>
+    <body>
+        
+        <!-- JS와 함께 HTMl 요소가 존재해도 됨 -->
+        <h2>Hello Java Script</h2>
+
+        <!-- JS의 존재 이유는 요소의 이벤트 처리 -->
+        <!-- 요소 안에다가 함수를 썼으므로 인라인 스크립트이다. -->
+        <button onclick="aaa()">버튼</button>
+    </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>프로토타입</title>
+        <script>
+            //js는 리터럴 객체들 or 생성자 함수를 이용한 객체든 모둔
+            //멤버메소드가 객체마다 존재함. 낭비야 이거!
+            //같은 객체자료형마다 메소드가 하나만 존재하도록 하는 기법
+            function Person(name,age){
+                this.name = name;
+                this.age = age; //Person이라는 설계도면을 만듬.
+                //여기서 함수를 만들면 낭비가된다. 객체를 만들때마다 함수도 생기니까
+            }
+            //Person 자료형(생성자함수)에 하나만 존재하는 메소드 추가
+            Person.prototype.show = function(){//그 객체와 연결되는 프로토타입영역에 뭔가 쓸수있다
+                document.write("person : "+this.name+", "+this.age+"<br>");
+            } 
+
+            var p1 = new Person("sam",20);
+            var p2 = new Person("robin",25);
+
+            p1.show(); //마치 객체가 가진 메소드인냥
+            p2.show();
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

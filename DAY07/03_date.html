@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>JS Date 내장 객체</title>
+        <script>
+            //JS에서 미리 설계해둔 내장객체! (엄밀하게말하면 생성자함수- 자바의 class들)
+            //Date, Number, String, Math, Array....
+
+            //1. Date - Date는 생성자함수이고 클래스같은놈이다. 객체를 만들기위해서는 멤버변수가 필요함
+            var a = new Date(); //날짜 관리 객체 생성
+            document.write(a+"<br>"); //참조변수를 출력하면 자동 .toString()이 발동한다.
+            //a.toString 한것과 같다. 
+            document.write(typeof(a)+"<br>"); //저 5개는 다 object로 나옴 (넘버,불린,언디파인,오브젝트,스트링)
+            
+            //Date생성자 함수의 주요기능 메소드들...
+            document.write(a.toDateString()+"<br>"); //연월일, 요일이렇게 나온다.
+            document.write(a.toLocaleString()+"<br>"); //()를 해야한다. ()안하면 그냥 날것으로 나옴
+            document.write(a.getYear()+"<br>"); //1900년을 기준으로한다 그래서 123이 나옴. 컴퓨터가 나온시점을기준으로 한다. 
+            document.write(a.getFullYear()+"<br>");
+            document.write(a.getMonth()+"<br>"); //월 표시가 0부터 시작한다. 그래서 +1해줘야한다. 
+            document.write(a.getDate()+"<br>");
+            document.write(a.getHours()+"<br>");//0~23시까지
+            document.write(a.getMinutes()+"<br>");
+            document.write(a.getSeconds()+"<br>");
+            document.write(a.getTime()+"<br>"); //currentTimeMillis 1970/1/1 09:00:00 부터ms마다 카운트
+            //자바는 1970/1/1 00:00:00부터 시작
+            
+            var b = new Date();//이순간은 현재시간
+            document.write(b.toLocaleString()+"<br>");
+            b.setFullYear(2018);
+            document.write(b.toLocaleString()+"<br>");
+            
+            //생성자의 파라미터를 통해 특정 날짜 설정.
+            var c = new Date(2025,4,9); //2025년 5월 9일
+            document.write(c.toLocaleString()+"<br>");
+
+            var c = new Date("wed Sep 13 2017 13:40:13 GMT+0900"); //js는 덮어써진다 var무시
+            document.write(c.toLocaleString()+"<br>");
+
+            var c = new Date("wed Sep 13 2017"); //js는 덮어써진다 var무시
+            document.write(c.toLocaleString()+"<br>");
+
+            var c = new Date("2017.9.13"); //js는 덮어써진다 var무시
+            document.write(c.toLocaleString()+"<br>");
+
+            var c = new Date(1548151548000); //js는 덮어써진다 var무시
+            document.write(c.toLocaleString()+"<br>");
+
+            var c = new Date(0); //js는 덮어써진다 var무시
+            document.write(c.toLocaleString()+"<br>"); //1970. 1. 1. 오전 9:00:00
+
+            //두 날짜 사이의 비교
+            var a = new Date("2017.9.12");
+            var b = new Date(); 
+            var diff = b.getTime() - a.getTime(); //밀리세컨트를 계산하여여햔다. 월, 일 빼서 계산은의미없다
+            var diff = b-a //자동getTime()으로 계산
+            document.write("두 날짜 차이 : "+diff+"<br>");
+
+            var c = new Date(diff); //js는 덮어써진다 var무시
+
+            //밀리세컨드를 일수로 변환한다. 
+            var sec = diff/1000;
+            var min = sec/60;
+            var hour = min/60;
+            var day = hour/24;
+
+            //한줄로계산하고 싶다면
+            var day = diff/(1000*60*60*24); //이렇게 쓰면 초분시를 나눈게 느껴진다. 
+
+
+            document.write("기념일: "+day+"<br>");
+            //소수점을 제거해야한다.
+            day = Math.floor(day); //소수점을 바닥으로 내려!
+            document.write("두 날짜 차이 day : "+day+"일");
+
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

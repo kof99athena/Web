@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>수식</title>
+    </head>
+    <body>
+        <script>
+            //4. Math
+            //별도의 new없이 class명으로 사용한다. 마치 static처럼
+            var n = 3.14;
+            document.write(Math.floor(n)+"<br>");//플로어 - 소수점제거
+            document.write(Math.round(n)+"<br>"); //반올림
+            document.write(Math.ceil(n)+"<br>"); //무조건 올림
+
+            //랜덤값 
+            var r = Math.random(); //0.0 ~ 1.0
+            document.write(r+"<br>");
+
+            //0~9 사이를 얻고 싶다면
+            var r = Math.floor(Math.random()*10);
+            document.write(r+"<br>");
+
+            //5~15 사이를 얻고 싶다면
+            var r = Math.floor(Math.random()*11)+5;
+            document.write(r+"<br>");
+
+
+        </script>
+    </body>
+</html>

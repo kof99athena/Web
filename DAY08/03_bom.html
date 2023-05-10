@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>js BOM</title>
+    </head>
+    <body>
+       
+            <!-- 브라우저 오브젝트 모델 BOM : 웹 브라우저 제어 객체들을 모델링 -->
+
+            <!-- //1. window : 최상위 객체 
+                    이 객체의 주요 메소드는? open, close 새로운 웹 문서 열기/닫기-->
+            
+            <button onclick="aaa()">Naver</button>
+            <script>
+                function aaa(){
+                    //window.open('https://www.naver.com'); //새탭이 열린다. 기본적으로 target값이 _blank이다 
+                    //window.open('https://www.naver.com','_self'); //현재 페이지에서 열린다.
+                    //아예 새창으로 열려면? 옵션을 줘야한다.
+                    window.open('https://www.naver.com','_blank','width=500,height=200','left=200,top=50');
+                }
+            </script>
+            <!-- 빈 윈도우 띄우기 -->
+            <button onclick="bbb()">message 윈도우</button>
+            <script>
+                function bbb(){
+                    //window는 최상위라서 생략 가능
+                    win = open('','','width=500,height=200'); //(주소, 블랭크, 옵션) 전역으로 만들어서 다른 지역에서도 알아듣게 한다. 
+                    win.document.write("잘못 들어왔어요?");
+                }
+            </script>
+
+            <!-- 윈도우 닫기 -->
+            <button onclick="ccc()">window close</button>
+            <script>
+                function ccc(){
+                    win.close();
+                }
+            </script>
+
+            <!-- moveTo, moveBy : 윈도우 창 이동 -->
+            <button onclick="mmm()">move 윈도우</button>
+            <button onclick="mmm2()"> 윈도우</button>
+
+            <script>
+                function mmm(){
+                    win.moveTo(300,100);
+                }
+
+                function mmm2(){
+                    win.moveBy(10,10); //현재 위치에서 변화량 
+                    win.focus();
+                }
+            </script>
+
+            <hr>
+            <!-- setTImeout -->
+            <button onclick="ddd()">3초후에 경고창 띄우기</button>
+            <script>
+                function ddd(){
+                    setTimeout(function(){
+                        alert('경고! ');
+                    },3000);
+                }
+            </script>
+            <hr>
+            <input type="text" id="input1" value="0" readonly>
+
+            <button onclick="eee()">카운트 증가 1초마다!</button>
+            <button onclick="eee2()">카운트종료</button>
+
+            <script>
+                var show = function(){
+                    var e = document.getElementById('input1');
+                    //e.value = e.value+1; //이러면 결합연산자 
+                    e.value = window.parseInt(e.value)+1; 
+                }
+
+                function eee(){
+                    id = setInterval(show,1000); //show는 파라미터가 필요없다.
+                    //특가할인에서 많이씀
+                }
+
+                function eee2(){
+                    clearInterval(id);
+                }
+            </script>
+
+            <hr>
+            <!-- 그밖의 유용한 메소드들 -->
+            <script>
+                //인터넷 주소 URL에는 특수문자나 한글은 사용불가
+                //이런 문자를 URL에 넣고 싶을때는 인코딩을 수행함
+                //인코딩 함수 
+                var a = encodeURI('http://www.test.com/가.html'); //http://www.test.com/%EA%B0%80.html
+                //가라는 글자가 인코딩된다. 
+                document.write(a+"<br>");
+
+                var a2 = decodeURI(a);
+                document.write(a2+"<br>");//http://www.test.com/가.html
+
+                //eval() 함수
+                var x = "10+2*6";
+                document.write(eval(x)+"<br>"); //문자열을 js에 명령어로 인식하여 해독.
+
+                //NaN
+                document.write(isNaN(10)+"<br>" ); //숫자아닙니까? false
+                document.write(isNaN("10")+"<br>" ); //isNaN의 뜻은 숫자로 바꿀수있냐라는 뜻이다. 
+                document.write(isNaN("ab")+"<br>" ); //숫자아닙니까? 네 true
+                document.write(isFinite("10/0")+"<br>" ); //유효한숫자가 아닙니까? 네 true
+
+            </script>
+
+
+            <!-- //2. document -->
+            <!-- 원래는 window.document라고 써야하지만 window는 생략가능  -->
+
+            <hr>
+            <!-- //3. screen : 모니터 해상도 관리 객체 -->
+            <script>
+                document.write(window.screen.width+" , "+window.screen.height+"<br>");
+                document.write(screen.width+" , "+screen.height+"<br>");
+                document.write(screen.availWidth+" , "+screen.availHeight+"<br>"); //작업 표시줄 영역제외 사이즈(모니터사이즈임 브라우저가아님)
+                
+                //브라우저 창 사이즈를 알고싶다면... window객체에게 물어봐야한다..
+                document.write(window.innerWidth+" , "+window.innerHeight+"<br>"); //document영역 : 브라우저의 하얀색
+                document.write(window.outerWidth+" , "+window.outerHeight+"<br>"); //아우터는 브라우저의 전체영역
+
+
+            </script>
+
+            <!-- //4. location : URL 정보 -->
+            <hr>
+            <script>
+                document.write(location.href+"<br>");
+                document.write(location.protocol+"<br>");
+                document.write(location.pathname+"<br>");
+            </script>
+
+            <button onclick="xxx()">location객체를 이용한 새로운 문서열기 </button>
+            <button onclick="yyy()">location객체를 이용한 현재문서열기(새로고침) </button>
+            <button onclick="zzz()">location객체를 이용한 현재문서 대체하여 열기 </button>
+            
+            <script>
+                function xxx(){
+                    //location.assign('https://www.naver.com'); //히스토리가 남아서 뒤로가기 가능
+                    //assign은 자주쓰지 않는다.
+                    location.href='https://www.naver.com';
+                }
+                function zzz(){
+                    location.replace('https://www.naver.com'); //이렇게하면 히스토리가 안남음 finish하고 넘어간거임
+                }
+                function yyy(){
+                    location.reload(); //새로 고침한거 
+                }
+
+            </script>
+
+<hr>
+            <!-- //5. history : 방문한 URL 정보-->
+            <script>
+                document.write("방문페이지 수 : "+history.length+"<br>");
+            </script>
+
+            <button onclick="hhh()">뒤로 </button>
+            <button onclick="hhh2()">앞으로 </button>
+            <button onclick="hhh3()">뒤로 2칸 </button>
+            <script>
+
+                function hhh(){
+                    history.back();
+                }
+
+                function hhh2(){
+                    history.forward();
+                }
+
+                function hhh3(){
+                    history.go(-2);
+                }
+
+            </script>
+
+            <!-- //6. navigator : 브라우저 정보 [추후 내 위치 검색할때 사용]-->
+            <hr>
+            <script>
+                document.write(navigator.appCodeName+"<br>");
+                document.write(navigator.appName+"<br>");
+                document.write(navigator.appVersion+"<br>");
+                document.write(navigator.platform+"<br>");
+                document.write(navigator.userAgent+"<br>");
+            </script>
+            
+
+       
+    </body>
+</html>

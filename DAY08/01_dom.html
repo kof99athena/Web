@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>DOM</title>
+    </head>
+    <body>
+        <!-- DOM : HTML 웹 문서안에 있는 것들을 객체로 바라보고 모델링한것  -->
+        <!-- 트리구조를 구성하는 것들을 노드 node라고 부름 -->
+        <!-- node의 종류는 3 종류 : element node, attribute node, text node -->
+
+        <!-- node 타입 확인하기 -->
+        <p id="p1"><a href="" target="">Google</a></p>
+        
+        <script>
+            //id값이 p1인 요소를 찾자
+            //document는 html의 하얀색 
+            var e = document.getElementById('p1');
+            //alert(e.nodeType+" : "+e.nodeName); //노드타입 1 : element 요소 노드, 요소이름 p
+            
+            //p요소의 속성을 알아보자
+            var attrs = e.attributes; //너의 속성들을 줘봐
+            //alert(attrs[0].nodeType+" : "+attrs[0].nodeName); //노드타입 2, 노드이름 id
+            //alert("속성값 : "+attrs[0].value);
+
+            //p요소의 첫번째 자식 노드 찾기
+            var e = e.firstChild;//너의 첫자식 줘바 : a 요소노드
+            //alert(e.nodeName+" : "+e.nodeType);
+
+            //a 요소 속성값들
+            var attrs=e.attributes;
+            //alert(attrs[0].nodeType+ " : "+ attrs[0].nodeName);
+            //alert(attrs[1].nodeType+ " : "+ attrs[1].nodeName);
+
+            //a요소의 첫번째 자식노드 : text node
+            var t = e.firstChild;
+            alert(t.nodeType+" : "+t.nodeName) //노드 타입 3, 노드이름 #text
+            alert("텍스트 값 : "+t.data); //data 자동완성 안됨. 
+
+       </script>
+    </body>
+</html>

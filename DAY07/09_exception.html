@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>예외처리</title>
+        <script>
+            //예외처리 : 에러가 발생할때 프로그램이 멈추지 않도록 하는 문법
+            //alet("aaa"); //alert이라 안쓰고 alet이라 잘못씀
+                         //다른 프로그램들처럼 다운되지 않는다.
+                         //에러가 발생하면 그 다음줄이 진행되지 않는다. 
+            try{
+                alet("aaa");
+            }catch(e){ //try에서 나온 에러가 캐치의 영역에 빠진다. () 파라미터로 받는다. 
+                document.write(e+"<br>");
+            }
+            document.write("예외처리 연습<br>");
+
+            function aaa(){
+                document.write("aaa를 화면에 찍어라<br>");
+            }
+            
+            //finally
+            try{
+                aaa();
+            }catch(e){
+                //예외가 발생했을때 실행되는 영역
+                document.write("catch영역: "+e+"<br>");
+            }finally{
+                //예외와 상관없이 무조건 실행되는 영역
+                //통상적으로 리소스의 정리 작업
+                document.write("finally영역<br>");
+            }
+            document.write("<hr>");
+
+            //throw - 일부러 예외를 발생시키는 문법
+            try{
+                var a=10;
+                var b=15;
+                var c=a-b;
+                if(c<0) throw "음수결과는 나오면 안돼."
+                document.write("결과 : "+c+"<br>");
+            }catch(e){
+                document.write("에러 : "+e+"<br>");
+            }
+
+
+        </script>
+    </head>
+    <body>
+        
+
+    </body>
+</html>

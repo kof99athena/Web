@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>JSON parse</title>
+    </head>
+    <body>
+        <button onclick="aaa()">jsonObject</button>
+        <button onclick="bbb()">jsonArray</button>
+        <h3 id="hh"></h3>
+        
+        <script>
+            //JSON 문자열 --> JS의 객체로 변환
+            var s = '{"name":"sam","age":20}'; //"키":"밸류"
+            function aaa(){
+                var person=JSON.parse(s); //JSON 클래스를 이용하여 객체(person)로 리턴받음
+                document.getElementById('hh').innerHTML = person.name+" : "+person.age //{"name":"sam","age":20}안에 있는 name, age를 멤버변수로 변환한다.
+
+            }
+
+            //JSON ARRAY --> JS 객체 배열로..
+            var ss='[{"name":"sam","age":20},{"name":"robin","age":30},{"name":"kim","age":40}]';
+            function bbb(){
+                var people = JSON.parse(ss); //변환된건 배열
+                var a ="";
+                for(var i=0;i<people.length;i++){
+                    a += people[i].name+" : ";
+                    a += people[i].age+" <br> ";
+                }
+
+                document.getElementById('hh').innerHTML=a;
+            }
+        </script>
+
+        <hr>
+
+        <!-- 자바스크립트객체를 JSON 문자열형식으로 변환 -->   
+        <button onclick="ccc()">object to json</button>
+        <button onclick="ddd()">objectArray to jsonArray</button>
+        <h3 id="pp"></h3>
+        <script>
+            var person = {
+                name : "sam",
+                age : 20
+            }//리터럴 객체
+
+            function ccc(){
+                var json = JSON.stringify(person); //JSON을 이용하여 js 배열을 json문자형식으로 만듬
+                document.getElementById('pp').innerHTML = json;
+            }
+
+            //js 객체 배열
+            var objArray=[
+            {"name":"sam","age":20},
+            {"name":"kim","age":30},
+            {"name":"hong","age":40}
+            ];
+
+            function ddd(){
+                var json = JSON.stringify(objArray);
+                document.querySelector("#pp").innerHTML = json;
+            }
+        </script>
+
+
+
+    </body>
+</html>

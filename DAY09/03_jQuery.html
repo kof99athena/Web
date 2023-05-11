@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>jQuery 라이브러리</title>
+        <!-- JQueye 라이브러리 :jquery 닷컴 -->
+
+        <!-- 1. 다운로드 방식 -->
+        <script src="./js/jquery-3.6.4.min.js"></script>
+        <!-- 2. CDN 방식 -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script>
+            //HTML body 문서의 로드가 완료되었을때 발동하는 이벤트 처리
+            //요소에 직접 js를쓰면 나중에 제어하기 너무 힘들다.. 그러지말고
+            jQuery(document).ready(function(){//객체를 쓸때는 "document"라고 쓰면 안돼
+            //     alert('ready');    
+            //     $("#btn").click(function(){
+            //     alert("클릭!");
+            // });
+                $("#b1").click(function(){
+                    $("img").hide(1000);
+                });
+                $("#b2").click(function(){
+                    $("img").show("fast");
+                });
+                $("#b3").click(function(){
+                    $("img").toggle("slow");
+                });
+                $("#b4").click(function(){
+                    $("img").slideUp("slow");
+                });
+                $("#b5").click(function(){
+                    $("img").slideDown("slow");
+                });
+                $("#b6").click(function(){
+                    $("img").slideToggle("slow");
+                });
+
+        }); 
+        
+                //애니메이션 효과
+                
+
+                
+        </script>
+
+    </head>
+    <body>
+        <!-- <button id="btn">버튼</button> -->
+
+        <hr>
+        <!-- 애니메이션 효과 -->
+        <button id="b1">hide</button>
+        <button id="b2">show</button>
+        <button id="b3">toggle</button>
+        <button id="b4">slideUp</button>
+        <button id="b5">slideDown</button>
+        <button id="b6">slideToggle</button>
+        <img src="./image/cat2.gif" alt="cat2" width="200">
+        <hr>
+        <!-- DOM 요소 제어 - 속성변경 -->
+        <p id="p1">이 요소에는 <strong>스트롱</strong>요소가 있습니다. </p>
+        <button id="btn1">text() 읽어오기</button>
+        <button id="btn2">html() 읽어오기</button>
+        <script>
+            $('#btn1').click(function(){
+                alert($('#p1').text());
+            });
+            $('#btn2').click(function(){
+                alert($('#p1').html()); //html로 읽어오는것은 태그문까지 글자로 표현한다.
+            });
+        </script>
+        
+        <hr>
+        <h3 id="hh">여기에 text 콘텐츠 작성하기</h3>
+        <button id="btn3">text() 쓰기</button>
+        <button id="btn4">html() 쓰기</button>
+
+        <script>
+            $('#btn3').click(function btn3(){
+                $('#hh').text('텍스트추가 <a href="">구글</a>');
+            });
+
+            $('#btn4').click( function btn4(){
+                $('#hh').html('텍스트추가 <a href="">구글</a>');
+            });
+            
+           
+        </script>
+    </body>
+</html>

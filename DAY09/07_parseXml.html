@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>JS XML parse</title>
+    </head>
+    <body>
+        <script>
+            //xml 데이터 사실은 [문자열]인데 특정한 형식이 있는 건뿐임
+            var xml = "<movie><title>아바타</title><genre>SF,Adventure</genre></movie>";
+            
+            //xml을 html의 DOM tree(태그문에 있는놈들을 다 객체로 바라봄)객체처럼 변환해주는 기능을 가진 파서 요청 
+            var parser=new DOMParser();
+            var doc = parser.parseFromString(xml,'application/xml'); //툭하니 객체를 리턴
+
+            //xml은 document가 없다. document처럼 쓰게만드려고 var doc을 만든다
+
+            var title = doc.getElementsByTagName('title')[0].textContent;
+            alert(title);
+            
+
+        </script>
+    </body>
+</html>

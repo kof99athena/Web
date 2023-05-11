@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>js fetch 라이브러리 수업</title>
+        <!-- fetch는 레트로핏같은 라이브러리 -->
+    </head>
+    <body>
+        <button onclick="aaa()">get방식</button>
+        <button onclick="bbb()">post방식</button>
+
+        <hr>
+
+        <div id="target"></div>
+
+        <script>
+            function aaa(){
+                //GET 방식 연습
+                var url = "./getTest.php?name=ROSA&msg=Good";
+
+                //fetch 라이브러리 - promiss 기법
+                fetch(url).then(function(response){  //이거 자체로 open,send 끝남 ,  내려받아 url을. 그리고나서 이 함수를 실행시켜
+                    //응답객체 : response 이건 객체이다.
+                    //응답 객체가 가지고 온 응답결과를 글씨로 변환하는 작업 요청
+                    return response.text(); //이것도 비동기 작업이다. 그래서 비동기로하다가 던져 
+
+                }).then(function(responseText){
+                    document.querySelector('#target').innerHTML=responseText;
+                }); //and then .. 계속 이런식으로 명령한다. 이것이 프로미스기법
+            }
+
+            function bbb(){
+                //POST 방식
+                var url="./postTest.php";
+                var data="title=Hello&msg=nice to meet you";
+
+                fetch(url,{//옵션은 객체로 준다. 
+                    method:'POST',
+                    headers:{'Content-type':'application/x-www-form-urlencoded; charset=utf-8'},
+                    body:data
+                }).then(function(response){
+                    return response.text();
+                }).then(function(text){
+                    document.querySelector('#target').innerHTML=text;
+                })
+            
+            }
+        </script>
+    </body>
+</html>

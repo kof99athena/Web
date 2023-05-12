@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>geolocation</title>
+        <script>
+            function aaa(){
+                navigator.geolocation.getCurrentPosition(function(position){ //navigator 원래 브라우저 정보 알려주는 녀석인데 geo가 새로 생김
+                    //이녀석은 비동기 방식으로 진행해야한다. 이러면 변수로 받는게 아니라 callback함수로 받는다
+                    var latitude = position.coords.latitude;
+                    var longitude = position.coords.longitude;
+                    document.getElementById('hh').innerHTML = latitude+" , "+longitude
+                }); 
+            }
+
+            function bbb(){
+                id = navigator.geolocation.watchPosition(function(position){ 
+                    //위의 함수와 같다.
+                    var lat = position.coords.latitude;
+                    var lng = position.coords.longitude;
+                    document.querySelector('#hh').innerHTML = `${lat},${lng}`; //js의 템플릿 문자열 : 백틱으로 쓸수도 있다. ${}로 변수를 구별한다. 
+                });
+            }
+
+            function ccc(){
+                navigator.geolocation.clearWatch(id);
+                
+            }
+
+
+        </script>
+    </head>
+    <body>
+        <button onclick="aaa()">내 위치 얻어오기</button>
+        <h1 id="hh">location 정보</h1>
+        <button onclick="bbb()">위치 정보 자동 업데이트 </button>
+        <button onclick="ccc()">위치 자동 업데이트 종료 </button>
+    </body>
+</html>

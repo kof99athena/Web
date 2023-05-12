@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>js의 웹 워커</title>
+        <script>
+            function aaa(){
+                var n=0;
+                while(true){
+                    n++;
+                    document.getElementById('hh').innerHTML=n;
+                }
+            }
+
+            var w; //워커가 여러마리 생기면 위험하다. 이렇게 만들어서 쓰자.
+
+            function bbb(){
+
+                // 웹워커는 웹서버 환경에서만 동작한다. 
+                //닷홈사이트를 열어야한다. 
+
+                if(w==undefined){
+                    w = new Worker("worker.js"); //워커가 쓸 내용을 따로 써준다. 
+                    //워커 객체를 만들면 자동으로 start한다. 
+                    
+                    //워커가 포스트로 보낸 메시지 받기 
+                    w.onmessage = function(event){
+                        //콜백메소드 
+                        //메세지를 가지고온 event객체가 만들어진다.
+                        document.getElementById('hh').innerHTML = event.data;
+                        
+                    }
+
+                }else{
+                    alert('이미 워커가 있어욤 ');
+                }
+                
+            }
+
+            function ccc(){
+                w.terminate();
+                w = undefined;
+                
+            }
+            //메인스레드도 워커에게 메세지 전달 가능
+            //이런식으로... w.postMessage("sam");
+
+        </script>
+    </head>
+    <body>
+        <!-- 웹 워크를 안썼을때 어떤 문제가 발생할까?  -->
+        <button onclick="aaa()">무한 반복문</button>
+        <h2 id="hh"></h2>
+        <hr>
+        <button onclick="alert('clicked!')">버튼</button>
+        <hr>
+        <button onclick="bbb()">start worker - 스레드이다. </button>
+        <button onclick="ccc()">stop worker - 스레드이다. </button>
+
+    </body>
+</html>

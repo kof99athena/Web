@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Drag and Drop</title> 
+        <style>
+            #cart{
+                width: 500px; height: 150px; padding: 10px; border: 1px dotted palevioletred;
+
+            }
+        </style>
+        <script>
+
+            var id;
+            var isoverCart = false;
+
+
+            function startDrag(){
+                //드래그가 되는 요소의 식별 id값을 변수에 저장
+                id= event.target.id; //startDrag가 발동된 요소의 id값을 불러오자 
+            }
+
+            function overDrag(){
+                //div요소 위에 그림이 올라갔을때 
+                //기본적으로 내 위(여기서는 div) 에 다른 요소들이 올라가는걸 막고있다.   
+                //이걸 풀어주어 drop을 허용시키자 
+                event.preventDefault();
+                isoverCart = true; 
+            }
+
+            function leaveDrag(){
+                isoverCart = false;  
+            }
+
+            function endDrag(){
+                if(isoverCart){
+                //isoverCart일때만 드래그를 옮기자
+                //div 요소에 드랍시킬수 있게 만드는 함수
+                //처음 드래그 시작될때 저장했던 id를 이용하여 요소 찾기
+                var e = document.getElementById(id);
+                document.getElementById('cart').append(e); //cart위에 e를 올리겠다. append는 기존에 있던걸 붙인다는뜻이다. 
+                isoverCart = false;        
+                }
+
+
+            }
+
+           
+
+            
+        </script>
+    </head>
+    <body>
+        <div id="cart" ondragover="overDrag()" ondragleave="leaveDrag()"></div>
+        <!-- 내 위에 누군가가 drag되었을때 대응하는 함수를 만들자 overDrag,leaveDrag -->
+
+        <img src="./image/cat7.gif" alt="cat" width="150" height="150" id="img1" ondragstart="startDrag()" ondragend="endDrag()">
+        <img src="./image/cat1.gif" alt="cat" width="150" height="150" id="img2" ondragstart="startDrag()" ondragend="endDrag()">
+        <img src="./image/cat2.gif" alt="cat" width="150" height="150" id="img3" ondragstart="startDrag()" ondragend="endDrag()">
+    </body>
+</html>

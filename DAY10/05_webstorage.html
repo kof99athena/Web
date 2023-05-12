@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>웹스토리지</title>
+    </head>
+    <body>
+        <h2 id="aa"></h2> 
+        <hr>
+        <h2 id="bb"></h2>
+
+        <script>
+            //웹스토리지 : 웹문서(html)가 데이터를 client의 컴퓨터에 저장할 수 있는 기법(일종의 쿠기- 4kb) -- 5MB 정보 저장 가능
+            //웹스토리지 2가지 저장소 
+            //1. localStorage 
+            //예제 ) 페이지 방문 횟수 저장
+            if(!localStorage.cnt){
+                //cnt가있지않니? 그러면 0넣어
+                //undefined일때만 0 넣어
+                localStorage.cnt = 0; //이러면 localStorage.aaa  aaa변수 생긴거임
+                //초기화 작업
+
+            }
+            
+                //기존의 cnt변수값 1증가
+                localStorage.cnt = parseInt(localStorage.cnt)+1;// 그런데 스토리지는 모든값을 문자열로 저장한다. 
+
+                document.getElementById('aa').innerHTML = localStorage.cnt+"번째 방문입니다. "; 
+           
+
+            //2. sessionStorage -세션은 브라우저 하나 킬때마다 다시 갱신된다. 
+            //새탭열면 방문회수가 1번으로 다시 시작
+            
+            if(!sessionStorage.cnt) sessionStorage.cnt=0;
+                //cnt 없니? 그러면
+                
+            
+            sessionStorage.cnt = parseInt(sessionStorage.cnt)+1;
+            document.querySelector('#bb').innerHTML = `${sessionStorage.cnt}번째 방문입니다.`;
+
+        </script>
+
+    </body>
+</html>

@@ -32,8 +32,8 @@
                 
                 //xhr.open('GET','./aaa.txt',true); //세번째 파라미터는 async로 할것이냐 묻는것
                 //xhr.open('GET','./getTest.php?name=SAM&msg=Good',true); //데이터 2개 보냄
-               //[진짜 중요] 다른 서버와 통신하고 싶다면? 예를들면 open API, 기상청 정보 ... 
-                xhr.open('GET','http://www.w3schools.com/XML/cd_catalog.xml',true);
+                //[진짜 중요] 다른 서버와 통신하고 싶다면? 예를들면 open API, 기상청 정보 ... 
+                xhr.open('GET','http://webtoast2023.dothome.co.kr/place/cocktailPlace.html',true);
                 xhr.send();
             }
 
@@ -48,8 +48,6 @@
                 xhr.open('POST','./postTest.php',true);
                 xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
                 xhr.send('title=Hello&msg=Nice to meet you');
-
-                
             }
         </script>
     </head>

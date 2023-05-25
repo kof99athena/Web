@@ -175,6 +175,29 @@
 
         <script>
             //static 멤버
+            class First{
+                //정적 메소드 존재
+                static show(){
+                    document.write("static method show...<br>")
+                    //static : 객체를 만들지 않아도 객체가 생성된다.
+                }
+
+                static name="kim"
+                constructor(){
+                    this.age=20 //static은 멤버에게만 붙일 수 있다. 
+                }
+            }
+            //객체 생성 없이 사용가능
+            First.show()
+
+            //static 멤버변수 사용
+            document.write("static name : " +First.name+"<br>")
+
+            //static도 클래스 설계 밖에서 추가할 수 있음
+            First.num = 50
+            document.write("static 2")
+
+
         </script>
 
    
@@ -182,6 +205,64 @@
 
         <script>
             //구조 분해 할당 문법 
+            class Nice{
+                name = "hong"
+                age = 20
+                address = "SEOUL"
+            }
+
+            let nice = new Nice()
+            document.write("name : "+nice.name+"<br>")
+            document.write("name : "+nice.name+"<br>")
+            document.write("address : "+nice.address+"<br>")
+        
+            //객체의 특정한 멤버를 뽑아서 일반변수에 대입하여 사용하는 문법 
+            // let name = nice.name
+            // let age = nice.age
+            // let address = nice.address
+            //위 작업을 좀 쉽게 하고 싶다.
+
+            let {name,age} = nice // nice객체에서 name만 가져온다. 
+
+            document.write("name : "+name+"<br>")
+            document.write("age : "+age+"<br>")
+           
+
+            //구조분해할당이 많이 활용되는 형태 - 함수의 파라미터로 객체를 전달
+            //nice 객체의 주소(Address)를 출력해주는 기능 함수
+            function showNiceAddress({address}){
+                document.write("address : "+address+"<br>")
+            }
+
+            showNiceAddress(nice) //객체를 파라미터로 전달
+            //리액트네이티브에서도 잘쓰는 형태이므로 알아둬야함 
+
+            document.write("<hr>")
+
+            //구조분해할당 주의점. 멤버의 이름이 다르면 할당 불가능
+            let {addss} = nice
+            document.write("address : "+addss+"<br>")
+
+            //특이한 구조분해 할당
+            //특정멤버를 제외한 나머지들을 하나의 객체로.. 할당 
+
+            class Hello{
+                aaaa = 10
+                bbbb = 20
+                cccc = 30
+                dddd = 40
+            }
+
+            let hello = new Hello()
+            const {aaaa,...rest} = hello  //[...rest]는 나머지 애들을 묶는 명령어
+            document.write("aaaa : "+aaaa+"<br>")
+            document.write("bbbb : "+rest.bbbb+"<br>")
+            document.write("cccc : "+rest.cccc+"<br>")
+            document.write("dddd : "+rest.dddd+"<br>")
+
+    
+
+
         </script>
 
 

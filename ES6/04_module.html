@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>JS ES6 module</title>
+
+        <!-- 만약 웹을 제작중이라면... HTML에서 JS 파일을 연결하여 사용하기에  -->
+        <!-- 서로 다른 JS의 함수나 변수를 사용할 수 있음. -->
+        <!-- <script src="./module_aa.js"></script> -->
+
+        <!-- 하지만 React Native나 JS를 서버용 언어로 사용하는 node.js에서는 HTML 없이 프로그램이 동작함 -->
+            <!-- node.js : php대신js를 쓰고싶어서 만듬 , js 인터프리터 언어 -->
+            <!-- PHP : 서버사이드랭귀지 , 서버 언어이다.  -->
+            <!-- 리액트네이티브는 HTML을 안쓰고 es6 즉 js를 쓴다. 그래서 리액트네이티브를 하려면 node.js를 설치해야한다.  -->
+            <!-- 근데 하나의 js에 로그인, 채팅 등등 다 넣으면 복잡하다.. js를 나눠야한다. 그럴때!!!! 쓰는거 -->
+            <!-- 이때 사용하는게 module이다. 다른 js를 가져오는 것이다.  -->
+            <!-- 기본적으로 JS는 다른 JS에서 만든 클래스나 변수를 사용할 수 없음 -->
+
+        <script type="module"> 
+            //이 친구도 웹 서버에서만 동작한다. 
+            //웹에서 다른 모듈을 가져오려면 type요소에 module을 써줘야한다. 
+            // HTML안에서는 module import 를 하려면 ... 타입설정이 필요함
+            // show(); 이거로만 화면을 짜야한다. html없이 해야한다는 뜻이다
+            //다른 js를 가져와야한다.. 그렇게 화면을 짜야한다.
+            //다른 js의 함수, 변수, 클래스를 가져오는 문법이다. import
+            //module_aa.js안에 show만 가져온다. 
+
+            //moduel 타입은 비동기로 처리하기때문에 document.write사용불가능
+            // import show from './module_aa.js' 
+            // show();
+
+            //export defalut가 아닌것들은 import할때 반드시 {}안에 작성해야한다.
+            // import {addTextToBody} from './module_aa.js'
+            // addTextToBody('Nice to meet you');
+
+            //변수나 상수도 임포트 가능하다
+            // import {num,age} from './module_aa.js'
+            // alert(num+"\n"+age)
+
+            //같은 문서 안에 있는 여러개를 한번에 임포트
+            import show,{addTextToBody,num,age} from './module_aa.js' //디폴트 값은 중괄호안에 넣지 않는다. 
+
+            //import 하는 것의 이름을 이곳에서 다르게 사용할 수 있음.
+            import {num as n} from './module_aa.js'
+            alert(num+"\n")
+            
+
+
+
+
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>
